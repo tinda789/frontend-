@@ -1,106 +1,56 @@
 import api from './axiosConfig';
 
-const getSprintsByWorkList = async (workListId) => {
-  try {
-    const response = await api.get(`/sprints/worklist/${workListId}`);
-    return response.data;
-  } catch (error) {
-    throw error;
-  }
+const getByWorkList = async (workListId) => {
+  return api.get(`/sprints/worklist/${workListId}`);
 };
 
-const getActiveSprintsByWorkList = async (workListId) => {
-  try {
-    const response = await api.get(`/sprints/active/worklist/${workListId}`);
-    return response.data;
-  } catch (error) {
-    throw error;
-  }
+const getActiveByWorkList = async (workListId) => {
+  return api.get(`/sprints/active/worklist/${workListId}`);
 };
 
-const getSprintById = async (id) => {
-  try {
-    const response = await api.get(`/sprints/${id}`);
-    return response.data;
-  } catch (error) {
-    throw error;
-  }
+const getById = async (id) => {
+  return api.get(`/sprints/${id}`);
 };
 
-const createSprint = async (sprintData) => {
-  try {
-    const response = await api.post('/sprints', sprintData);
-    return response.data;
-  } catch (error) {
-    throw error;
-  }
+const create = async (sprintData) => {
+  return api.post('/sprints', sprintData);
 };
 
-const updateSprint = async (id, sprintData) => {
-  try {
-    const response = await api.put(`/sprints/${id}`, sprintData);
-    return response.data;
-  } catch (error) {
-    throw error;
-  }
+const update = async (id, sprintData) => {
+  return api.put(`/sprints/${id}`, sprintData);
 };
 
 const startSprint = async (id, startDate, endDate) => {
-  try {
-    const response = await api.post(`/sprints/${id}/start?startDate=${startDate}&endDate=${endDate}`);
-    return response.data;
-  } catch (error) {
-    throw error;
-  }
+  return api.post(`/sprints/${id}/start?startDate=${startDate}&endDate=${endDate}`);
 };
 
 const completeSprint = async (id) => {
-  try {
-    const response = await api.post(`/sprints/${id}/complete`);
-    return response.data;
-  } catch (error) {
-    throw error;
-  }
+  return api.post(`/sprints/${id}/complete`);
 };
 
-const addIssueToSprint = async (sprintId, issueId) => {
-  try {
-    const response = await api.post(`/sprints/${sprintId}/issues/${issueId}`);
-    return response.data;
-  } catch (error) {
-    throw error;
-  }
+const addIssue = async (sprintId, issueId) => {
+  return api.post(`/sprints/${sprintId}/issues/${issueId}`);
 };
 
-const removeIssueFromSprint = async (sprintId, issueId) => {
-  try {
-    const response = await api.delete(`/sprints/${sprintId}/issues/${issueId}`);
-    return response.data;
-  } catch (error) {
-    throw error;
-  }
+const removeIssue = async (sprintId, issueId) => {
+  return api.delete(`/sprints/${sprintId}/issues/${issueId}`);
 };
 
 const deleteSprint = async (id) => {
-  try {
-    const response = await api.delete(`/sprints/${id}`);
-    return response.data;
-  } catch (error) {
-    throw error;
-  }
+  return api.delete(`/sprints/${id}`);
 };
 
 const sprintService = {
-  getSprintsByWorkList,
-  getActiveSprintsByWorkList,
-  getSprintById,
-  createSprint,
-  updateSprint,
+  getByWorkList,
+  getActiveByWorkList,
+  getById,
+  create,
+  update,
   startSprint,
   completeSprint,
-  addIssueToSprint,
-  removeIssueFromSprint,
-  deleteSprint
+  addIssue,
+  removeIssue,
+  delete: deleteSprint
 };
 
 export default sprintService;

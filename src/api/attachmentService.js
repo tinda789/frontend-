@@ -1,44 +1,29 @@
 import api from './axiosConfig';
 
-const getAttachmentsByIssue = async (issueId) => {
-  try {
-    const response = await api.get(`/attachments/issue/${issueId}`);
-    return response.data;
-  } catch (error) {
-    throw error;
-  }
+const getByIssue = async (issueId) => {
+  return api.get(`/attachments/issue/${issueId}`);
 };
 
-const uploadAttachment = async (file, issueId) => {
-  try {
-    const formData = new FormData();
-    formData.append('file', file);
-    formData.append('issueId', issueId);
-    
-    const response = await api.post('/attachments/upload', formData, {
-      headers: {
-        'Content-Type': 'multipart/form-data'
-      }
-    });
-    return response.data;
-  } catch (error) {
-    throw error;
-  }
+const upload = async (file, issueId) => {
+  const formData = new FormData();
+  formData.append('file', file);
+  formData.append('issueId', issueId);
+  
+  return api.post('/attachments/upload', formData, {
+    headers: {
+      'Content-Type': 'multipart/form-data'
+    }
+  });
 };
 
 const deleteAttachment = async (id) => {
-  try {
-    const response = await api.delete(`/attachments/${id}`);
-    return response.data;
-  } catch (error) {
-    throw error;
-  }
+  return api.delete(`/attachments/${id}`);
 };
 
 const attachmentService = {
-  getAttachmentsByIssue,
-  uploadAttachment,
-  deleteAttachment
+  getByIssue,
+  upload,
+  delete: deleteAttachment
 };
 
 export default attachmentService;

@@ -1,84 +1,44 @@
 import api from './axiosConfig';
 
-const getAllWorkLists = async () => {
-  try {
-    const response = await api.get('/worklists');
-    return response.data;
-  } catch (error) {
-    throw error;
-  }
+const getAll = async () => {
+  return api.get('/worklists');
 };
 
-const getWorkListsByWorkspace = async (workspaceId) => {
-  try {
-    const response = await api.get(`/worklists/workspace/${workspaceId}`);
-    return response.data;
-  } catch (error) {
-    throw error;
-  }
+const getByWorkspace = async (workspaceId) => {
+  return api.get(`/worklists/workspace/${workspaceId}`);
 };
 
-const getWorkListById = async (id) => {
-  try {
-    const response = await api.get(`/worklists/${id}`);
-    return response.data;
-  } catch (error) {
-    throw error;
-  }
+const getById = async (id) => {
+  return api.get(`/worklists/${id}`);
 };
 
-const createWorkList = async (workListData) => {
-  try {
-    const response = await api.post('/worklists', workListData);
-    return response.data;
-  } catch (error) {
-    throw error;
-  }
+const create = async (workListData) => {
+  return api.post('/worklists', workListData);
 };
 
-const updateWorkList = async (id, workListData) => {
-  try {
-    const response = await api.put(`/worklists/${id}`, workListData);
-    return response.data;
-  } catch (error) {
-    throw error;
-  }
+const update = async (id, workListData) => {
+  return api.put(`/worklists/${id}`, workListData);
 };
 
 const deleteWorkList = async (id) => {
-  try {
-    const response = await api.delete(`/worklists/${id}`);
-    return response.data;
-  } catch (error) {
-    throw error;
-  }
+  return api.delete(`/worklists/${id}`);
 };
 
 const addMember = async (workListId, userId) => {
-  try {
-    const response = await api.post(`/worklists/${workListId}/members/${userId}`);
-    return response.data;
-  } catch (error) {
-    throw error;
-  }
+  return api.post(`/worklists/${workListId}/members/${userId}`);
 };
 
 const removeMember = async (workListId, userId) => {
-  try {
-    const response = await api.delete(`/worklists/${workListId}/members/${userId}`);
-    return response.data;
-  } catch (error) {
-    throw error;
-  }
+  return api.delete(`/worklists/${workListId}/members/${userId}`);
 };
 
 const workListService = {
-  getAllWorkLists,
-  getWorkListsByWorkspace,
-  getWorkListById,
-  createWorkList,
-  updateWorkList,
-  deleteWorkList,
+  getAll,
+  getByWorkspace,
+  getById,
+  create,
+  update,
+  delete: deleteWorkList,
   addMember,
   removeMember
 };

@@ -1,49 +1,37 @@
 import api from './axiosConfig';
 
 const login = async (username, password) => {
-  try {
-    const response = await api.post('/auth/login', { username, password });
-    if (response.data.token) {
-      localStorage.setItem('token', response.data.token);
-    }
-    return response.data;
-  } catch (error) {
-    throw error;
+  const response = await api.post('/auth/login', { username, password });
+  if (response.data.token) {
+    localStorage.setItem('token', response.data.token);
+    localStorage.setItem('user', JSON.stringify(response.data));
   }
+  return response.data;
 };
 
-const register = async (username, email, password, fullName) => {
-  try {
-    const response = await api.post('/auth/register', {
-      username,
-      email,
-      password,
-      fullName
-    });
-    return response.data;
-  } catch (error) {
-    throw error;
-  }
+const register = async (userData) => {
+  return api.post('/auth/register', userData);
 };
 
 const logout = () => {
   localStorage.removeItem('token');
+  localStorage.removeItem('user');
 };
 
-const getCurrentUser = async () => {
-  try {
-    const response = await api.get('/users/profile');
-    return response.data;
-  } catch (error) {
-    throw error;
-  }
+const getCurrentUser = () => {
+  return JSON.parse(localStorage.getItem('user'));
+};
+
+const test = async () => {
+  return api.get('/auth/test');
 };
 
 const authService = {
   login,
   register,
   logout,
-  getCurrentUser
+  getCurrentUser,
+  test
 };
 
 export default authService;

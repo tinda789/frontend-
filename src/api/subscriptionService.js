@@ -1,46 +1,26 @@
 import api from './axiosConfig';
 
-const getAllSubscriptions = async () => {
-  try {
-    const response = await api.get('/subscriptions');
-    return response.data;
-  } catch (error) {
-    throw error;
-  }
+const getAll = async () => {
+  return api.get('/subscriptions');
 };
 
-const getCurrentSubscription = async () => {
-  try {
-    const response = await api.get('/subscriptions/current');
-    return response.data;
-  } catch (error) {
-    throw error;
-  }
+const getCurrent = async () => {
+  return api.get('/subscriptions/current');
 };
 
-const getSubscriptionHistory = async () => {
-  try {
-    const response = await api.get('/subscriptions/history');
-    return response.data;
-  } catch (error) {
-    throw error;
-  }
+const getHistory = async () => {
+  return api.get('/subscriptions/history');
 };
 
-const upgradeSubscription = async (subscriptionData) => {
-  try {
-    const response = await api.post('/subscriptions/upgrade', subscriptionData);
-    return response.data;
-  } catch (error) {
-    throw error;
-  }
+const upgrade = async (upgradeData) => {
+  return api.post('/subscriptions/upgrade', upgradeData);
 };
 
 const subscriptionService = {
-  getAllSubscriptions,
-  getCurrentSubscription,
-  getSubscriptionHistory,
-  upgradeSubscription
+  getAll,
+  getCurrent,
+  getHistory,
+  upgrade
 };
 
 export default subscriptionService;

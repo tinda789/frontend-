@@ -1,142 +1,71 @@
 import api from './axiosConfig';
 
-const getAllIssues = async () => {
-  try {
-    const response = await api.get('/issues');
-    return response.data;
-  } catch (error) {
-    throw error;
-  }
+const getAll = async () => {
+  return api.get('/issues');
 };
 
-const getIssueById = async (id) => {
-  try {
-    const response = await api.get(`/issues/${id}`);
-    return response.data;
-  } catch (error) {
-    throw error;
-  }
+const getByWorkList = async (workListId) => {
+  return api.get(`/issues/worklist/${workListId}`);
 };
 
-const getIssuesByWorkList = async (workListId) => {
-  try {
-    const response = await api.get(`/issues/worklist/${workListId}`);
-    return response.data;
-  } catch (error) {
-    throw error;
-  }
+const getBySprint = async (sprintId) => {
+  return api.get(`/issues/sprint/${sprintId}`);
 };
 
-const getIssuesBySprint = async (sprintId) => {
-  try {
-    const response = await api.get(`/issues/sprint/${sprintId}`);
-    return response.data;
-  } catch (error) {
-    throw error;
-  }
+const getAssigned = async () => {
+  return api.get('/issues/assigned');
 };
 
-const getAssignedIssues = async () => {
-  try {
-    const response = await api.get('/issues/assigned');
-    return response.data;
-  } catch (error) {
-    throw error;
-  }
+const getReported = async () => {
+  return api.get('/issues/reported');
 };
 
-const getReportedIssues = async () => {
-  try {
-    const response = await api.get('/issues/reported');
-    return response.data;
-  } catch (error) {
-    throw error;
-  }
+const getById = async (id) => {
+  return api.get(`/issues/${id}`);
 };
 
-const getSubIssues = async (parentIssueId) => {
-  try {
-    const response = await api.get(`/issues/${parentIssueId}/sub-issues`);
-    return response.data;
-  } catch (error) {
-    throw error;
-  }
+const getSubIssues = async (id) => {
+  return api.get(`/issues/${id}/sub-issues`);
 };
 
-const createIssue = async (issueData) => {
-  try {
-    const response = await api.post('/issues', issueData);
-    return response.data;
-  } catch (error) {
-    throw error;
-  }
+const create = async (issueData) => {
+  return api.post('/issues', issueData);
 };
 
-const updateIssue = async (id, issueData) => {
-  try {
-    const response = await api.put(`/issues/${id}`, issueData);
-    return response.data;
-  } catch (error) {
-    throw error;
-  }
+const update = async (id, issueData) => {
+  return api.put(`/issues/${id}`, issueData);
 };
 
-const updateIssueStatus = async (id, status) => {
-  try {
-    const response = await api.patch(`/issues/${id}/status?status=${status}`);
-    return response.data;
-  } catch (error) {
-    throw error;
-  }
+const updateStatus = async (id, status) => {
+  return api.patch(`/issues/${id}/status?status=${status}`);
 };
 
-const updateIssueAssignee = async (id, assigneeId) => {
-  try {
-    const url = assigneeId 
-      ? `/issues/${id}/assignee?assigneeId=${assigneeId}`
-      : `/issues/${id}/assignee`;
-    const response = await api.patch(url);
-    return response.data;
-  } catch (error) {
-    throw error;
-  }
+const updateAssignee = async (id, assigneeId) => {
+  return api.patch(`/issues/${id}/assignee?assigneeId=${assigneeId || ''}`);
 };
 
-const updateIssueSprint = async (id, sprintId) => {
-  try {
-    const url = sprintId 
-      ? `/issues/${id}/sprint?sprintId=${sprintId}`
-      : `/issues/${id}/sprint`;
-    const response = await api.patch(url);
-    return response.data;
-  } catch (error) {
-    throw error;
-  }
+const updateSprint = async (id, sprintId) => {
+  return api.patch(`/issues/${id}/sprint?sprintId=${sprintId || ''}`);
 };
 
 const deleteIssue = async (id) => {
-  try {
-    const response = await api.delete(`/issues/${id}`);
-    return response.data;
-  } catch (error) {
-    throw error;
-  }
+  return api.delete(`/issues/${id}`);
 };
 
 const issueService = {
-  getAllIssues,
-  getIssueById,
-  getIssuesByWorkList,
-  getIssuesBySprint,
-  getAssignedIssues,
-  getReportedIssues,
+  getAll,
+  getByWorkList,
+  getBySprint,
+  getAssigned,
+  getReported,
+  getById,
   getSubIssues,
-  createIssue,
-  updateIssue,
-  updateIssueStatus,
-  updateIssueAssignee,
-  updateIssueSprint,
-  deleteIssue
+  create,
+  update,
+  updateStatus,
+  updateAssignee,
+  updateSprint,
+  delete: deleteIssue
 };
 
 export default issueService;

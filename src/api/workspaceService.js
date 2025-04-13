@@ -1,84 +1,44 @@
 import api from './axiosConfig';
 
-const getAllWorkspaces = async () => {
-  try {
-    const response = await api.get('/workspaces');
-    return response.data;
-  } catch (error) {
-    throw error;
-  }
+const getAll = async () => {
+  return api.get('/workspaces');
 };
 
-const getOwnedWorkspaces = async () => {
-  try {
-    const response = await api.get('/workspaces/owned');
-    return response.data;
-  } catch (error) {
-    throw error;
-  }
+const getOwned = async () => {
+  return api.get('/workspaces/owned');
 };
 
-const getWorkspaceById = async (id) => {
-  try {
-    const response = await api.get(`/workspaces/${id}`);
-    return response.data;
-  } catch (error) {
-    throw error;
-  }
+const getById = async (id) => {
+  return api.get(`/workspaces/${id}`);
 };
 
-const createWorkspace = async (workspaceData) => {
-  try {
-    const response = await api.post('/workspaces', workspaceData);
-    return response.data;
-  } catch (error) {
-    throw error;
-  }
+const create = async (workspaceData) => {
+  return api.post('/workspaces', workspaceData);
 };
 
-const updateWorkspace = async (id, workspaceData) => {
-  try {
-    const response = await api.put(`/workspaces/${id}`, workspaceData);
-    return response.data;
-  } catch (error) {
-    throw error;
-  }
+const update = async (id, workspaceData) => {
+  return api.put(`/workspaces/${id}`, workspaceData);
 };
 
 const deleteWorkspace = async (id) => {
-  try {
-    const response = await api.delete(`/workspaces/${id}`);
-    return response.data;
-  } catch (error) {
-    throw error;
-  }
+  return api.delete(`/workspaces/${id}`);
 };
 
 const addMember = async (workspaceId, userId) => {
-  try {
-    const response = await api.post(`/workspaces/${workspaceId}/members/${userId}`);
-    return response.data;
-  } catch (error) {
-    throw error;
-  }
+  return api.post(`/workspaces/${workspaceId}/members/${userId}`);
 };
 
 const removeMember = async (workspaceId, userId) => {
-  try {
-    const response = await api.delete(`/workspaces/${workspaceId}/members/${userId}`);
-    return response.data;
-  } catch (error) {
-    throw error;
-  }
+  return api.delete(`/workspaces/${workspaceId}/members/${userId}`);
 };
 
 const workspaceService = {
-  getAllWorkspaces,
-  getOwnedWorkspaces,
-  getWorkspaceById,
-  createWorkspace,
-  updateWorkspace,
-  deleteWorkspace,
+  getAll,
+  getOwned,
+  getById,
+  create,
+  update,
+  delete: deleteWorkspace,
   addMember,
   removeMember
 };

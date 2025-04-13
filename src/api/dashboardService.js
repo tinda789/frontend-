@@ -1,34 +1,19 @@
 import api from './axiosConfig';
 
-const getDashboardStats = async () => {
-  try {
-    const response = await api.get('/dashboard/stats');
-    return response.data;
-  } catch (error) {
-    throw error;
-  }
+const getStats = async () => {
+  return api.get('/dashboard/stats');
 };
 
 const getWorkListReport = async (workListId) => {
-  try {
-    const response = await api.get(`/dashboard/worklist/${workListId}/report`);
-    return response.data;
-  } catch (error) {
-    throw error;
-  }
+  return api.get(`/dashboard/worklist/${workListId}/report`);
 };
 
 const getUserProductivity = async (workListId) => {
-  try {
-    const response = await api.get(`/dashboard/worklist/${workListId}/productivity`);
-    return response.data;
-  } catch (error) {
-    throw error;
-  }
+  return api.get(`/dashboard/worklist/${workListId}/productivity`);
 };
 
 const dashboardService = {
-  getDashboardStats,
+  getStats,
   getWorkListReport,
   getUserProductivity
 };

@@ -1,56 +1,31 @@
 import api from './axiosConfig';
 
-const getUserNotifications = async () => {
-  try {
-    const response = await api.get('/notifications');
-    return response.data;
-  } catch (error) {
-    throw error;
-  }
+const getAll = async () => {
+  return api.get('/notifications');
 };
 
-const getUnreadNotifications = async () => {
-  try {
-    const response = await api.get('/notifications/unread');
-    return response.data;
-  } catch (error) {
-    throw error;
-  }
+const getUnread = async () => {
+  return api.get('/notifications/unread');
 };
 
 const markAsRead = async (id) => {
-  try {
-    const response = await api.post(`/notifications/${id}/read`);
-    return response.data;
-  } catch (error) {
-    throw error;
-  }
+  return api.post(`/notifications/${id}/read`);
 };
 
 const markAllAsRead = async () => {
-  try {
-    const response = await api.post('/notifications/read-all');
-    return response.data;
-  } catch (error) {
-    throw error;
-  }
+  return api.post('/notifications/read-all');
 };
 
 const deleteNotification = async (id) => {
-  try {
-    const response = await api.delete(`/notifications/${id}`);
-    return response.data;
-  } catch (error) {
-    throw error;
-  }
+  return api.delete(`/notifications/${id}`);
 };
 
 const notificationService = {
-  getUserNotifications,
-  getUnreadNotifications,
+  getAll,
+  getUnread,
   markAsRead,
   markAllAsRead,
-  deleteNotification
+  delete: deleteNotification
 };
 
 export default notificationService;
