@@ -1,0 +1,184 @@
+/* src/styles/issue.css */
+.issue-list {
+    margin-top: 20px;
+  }
+  
+  .filters-bar {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    gap: 15px;
+  }
+  
+  .search-filter, .status-filter {
+    display: flex;
+    align-items: center;
+  }
+  
+  .status-filter span {
+    margin-right: 10px;
+  }
+  
+  .issue-detail .breadcrumb {
+    margin-bottom: 15px;
+  }
+  
+  .issue-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 20px;
+  }
+  
+  .issue-title-section {
+    flex: 1;
+  }
+  
+  .issue-type-and-key {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+    color: #5e6c84;
+  }
+  
+  .issue-type-icon {
+    margin-right: 8px;
+    font-size: 16px;
+  }
+  
+  .issue-key {
+    font-size: 14px;
+  }
+  
+  .issue-title {
+    margin: 0;
+    font-size: 24px;
+    word-break: break-word;
+  }
+  
+  .issue-actions {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .issue-content {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    gap: 20px;
+  }
+  
+  .issue-main {
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    padding: 20px;
+  }
+  
+  .issue-description {
+    margin-bottom: 20px;
+  }
+  
+  .issue-description h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: #172b4d;
+  }
+  
+  .description-content {
+    white-space: pre-line;
+    color: #172b4d;
+  }
+  
+  .issue-sidebar {
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    padding: 20px;
+  }
+  
+  .sidebar-section {
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  
+  .sidebar-section:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+  
+  .section-label {
+    font-weight: 500;
+    color: #5e6c84;
+    font-size: 12px;
+    margin-bottom: 5px;
+  }
+  
+  .assignee, .user-info {
+    display: flex;
+    align-items: center;
+  }
+  
+  .user-avatar {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background-color: #0052cc;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    margin-right: 8px;
+    font-size: 12px;
+  }
+  
+  .no-assignee {
+    color: #5e6c84;
+    font-style: italic;
+  }
+  
+  .comments-section, .attachments-section, .worklogs-section {
+    margin-top: 20px;
+  }
+  
+  .comment-form, .upload-section {
+    margin-bottom: 20px;
+  }
+  
+  .comment-list .comment-header {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .comment-author {
+    font-weight: 500;
+  }
+  
+  .comment-date {
+    font-size: 12px;
+    color: #5e6c84;
+  }
+  
+  .worklog-header {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+  }
+  
+  .worklog-time {
+    font-weight: 500;
+  }
+  
+  .worklog-date, .worklog-author {
+    color: #5e6c84;
+    font-size: 0.9em;
+  }
+  
+  .worklog-total {
+    margin-bottom: 15px;
+    font-weight: 500;
+    color: #172b4d;
+  }

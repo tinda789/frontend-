@@ -1,0 +1,114 @@
+/* src/styles/board.css */
+.board-list {
+    margin-top: 20px;
+  }
+  
+  .boards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+  }
+  
+  .board-card {
+    margin-bottom: 15px;
+  }
+  
+  .board-detail .page-header {
+    margin-bottom: 20px;
+  }
+  
+  .board-description {
+    margin-bottom: 20px;
+    color: #5e6c84;
+  }
+  
+  .board-actions {
+    margin-bottom: 20px;
+  }
+  
+  .board-columns-container {
+    display: flex;
+    gap: 15px;
+    overflow-x: auto;
+    padding: 10px 0;
+    min-height: 300px;
+  }
+  
+  .board-column {
+    min-width: 280px;
+    max-width: 280px;
+    background-color: #f4f5f7;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .column-header {
+    padding: 10px 15px;
+    background-color: #ebecf0;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .column-header h3 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 500;
+  }
+  
+  .column-issues {
+    flex: 1;
+    padding: 10px;
+    min-height: 200px;
+  }
+  
+  .column-issues.dragging-over {
+    background-color: #e6effc;
+  }
+  
+  .issue-card {
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: white;
+    border-radius: 3px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+    cursor: grab;
+  }
+  
+  .issue-card.dragging {
+    box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+  }
+  
+  .issue-card .issue-key {
+    color: #5e6c84;
+    font-size: 0.85em;
+    margin-bottom: 5px;
+  }
+  
+  .issue-card .issue-title {
+    margin-bottom: 5px;
+    word-break: break-word;
+  }
+  
+  .issue-card .issue-title a {
+    color: #172b4d;
+    text-decoration: none;
+  }
+  
+  .issue-card .issue-title a:hover {
+    text-decoration: underline;
+  }
+  
+  .issue-card .issue-assignee {
+    font-size: 0.85em;
+    color: #5e6c84;
+  }
+  
+  .empty-column {
+    color: #5e6c84;
+    text-align: center;
+    padding: 20px 0;
+  }
